@@ -1,6 +1,7 @@
 package constructor;
 
 import config.WebDriverFactory;
+import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -29,7 +30,7 @@ public class CheckMenuIngredientsTest {
 
    @Test
     public void checkSouce() {
-        homePage.menuSouceClick();
+       homePage.menuSouceClick();
         // метод returnMenuActiveSection возвращает текст активной секции
         Assert.assertEquals("Соусы", homePage.returnMenuActiveSection());
     }
@@ -40,8 +41,8 @@ public class CheckMenuIngredientsTest {
         // метод returnMenuActiveSection возвращает текст активной секции
         Assert.assertEquals("Начинки", homePage.returnMenuActiveSection());
     }
-    @Before
+    @After
     public void close(){
-        webDriver.close();
+        webDriver.quit();
     }
 }
