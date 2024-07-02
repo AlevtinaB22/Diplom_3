@@ -6,6 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
+
 public class RegistrationPage {
 
     private final WebDriver driver;
@@ -32,12 +34,12 @@ public class RegistrationPage {
     }
 
     public void wrongPassword() {
-        new WebDriverWait(driver, 5)
+        new WebDriverWait(driver, Duration.ofSeconds(5))
                 .until(ExpectedConditions.visibilityOfElementLocated(wrongPasswordErrorLocator));
     }
 
     public void entry() {
-        new WebDriverWait(driver, 5)
+        new WebDriverWait(driver, Duration.ofSeconds(5))
                 .until(ExpectedConditions.visibilityOfElementLocated(entryButtonLocator));
         WebElement entry = driver.findElement(entryButtonLocator);
         entry.click();

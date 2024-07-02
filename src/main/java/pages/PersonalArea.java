@@ -6,6 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
+
 public class PersonalArea {
     private final WebDriver driver;
     private final By titleProfileLocator = By.xpath("//a[text()='Профиль']");
@@ -16,12 +18,12 @@ public class PersonalArea {
     }
 
     public void titleProfileExist() {
-        new WebDriverWait(driver, 5)
+        new WebDriverWait(driver, Duration.ofSeconds(5))
                 .until(ExpectedConditions.visibilityOfElementLocated(titleProfileLocator));
     }
 
     public void logout() {
-        new WebDriverWait(driver, 5)
+        new WebDriverWait(driver, Duration.ofSeconds(5))
                 .until(ExpectedConditions.visibilityOfElementLocated(logoutLocator));
         WebElement entry = driver.findElement(logoutLocator);
         entry.click();

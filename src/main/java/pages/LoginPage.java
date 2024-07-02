@@ -6,6 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
+
 public class LoginPage {
     private final WebDriver driver;
     private final By textEntry = By.xpath("//h2[text()='Вход']");
@@ -19,7 +21,7 @@ public class LoginPage {
     }
 
     public void textEntryExist() {
-        new WebDriverWait(driver, 5)
+        new WebDriverWait(driver, Duration.ofSeconds(5))
                 .until(ExpectedConditions.visibilityOfElementLocated(textEntry));
     }
 

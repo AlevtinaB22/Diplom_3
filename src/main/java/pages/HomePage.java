@@ -6,6 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
+
 public class HomePage {
     private final WebDriver driver;
     private final By entryLocator = By.xpath("//button[text()='Войти в аккаунт']");
@@ -20,14 +22,14 @@ public class HomePage {
     }
 
     public void entryButton() {
-        new WebDriverWait(driver, 5)
+        new WebDriverWait(driver, Duration.ofSeconds(5))
                 .until(ExpectedConditions.visibilityOfElementLocated(entryLocator));
         WebElement entry = driver.findElement(entryLocator);
         entry.click();
     }
 
     public void checkMakeBurger() {
-        new WebDriverWait(driver, 5)
+        new WebDriverWait(driver, Duration.ofSeconds(5))
                 .until(ExpectedConditions.visibilityOfElementLocated(makeBurgerTitleLocator));
     }
 
@@ -37,21 +39,21 @@ public class HomePage {
     }
 
     public void menuSouceClick() {
-        new WebDriverWait(driver, 5)
+        new WebDriverWait(driver, Duration.ofSeconds(5))
                 .until(ExpectedConditions.visibilityOfElementLocated(menuSouceClickLocator));
         WebElement souce = driver.findElement(menuSouceClickLocator);
         souce.click();
     }
 
     public void menuFillingClick() {
-        new WebDriverWait(driver, 5)
+        new WebDriverWait(driver, Duration.ofSeconds(5))
                 .until(ExpectedConditions.visibilityOfElementLocated(menuFillingClickLocator));
         WebElement filling = driver.findElement(menuFillingClickLocator);
         filling.click();
     }
 
     public String returnMenuActiveSection() {
-        new WebDriverWait(driver, 8)
+        new WebDriverWait(driver, Duration.ofSeconds(5))
                 .until(ExpectedConditions.visibilityOfElementLocated(By.xpath(menuActivSectionLocator)));
         WebElement actionSectionText = driver.findElement(By.xpath(menuActivSectionLocator + "//span"));
         return actionSectionText.getText();

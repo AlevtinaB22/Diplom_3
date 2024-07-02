@@ -6,6 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
+
 public class Header {
     private final WebDriver driver;
     private final By personalAreaButtonLocator = By.xpath("//p[text()='Личный Кабинет']");
@@ -17,21 +19,21 @@ public class Header {
     }
 
     public void personalAreaButton() {
-        new WebDriverWait(driver, 5)
+        new WebDriverWait(driver, Duration.ofSeconds(5))
                 .until(ExpectedConditions.visibilityOfElementLocated(personalAreaButtonLocator));
         WebElement entry = driver.findElement(personalAreaButtonLocator);
         entry.click();
     }
 
     public void logoClick() {
-        new WebDriverWait(driver, 5)
+        new WebDriverWait(driver, Duration.ofSeconds(5))
                 .until(ExpectedConditions.visibilityOfElementLocated(logoButtonLocator));
         WebElement logoClick = driver.findElement(logoButtonLocator);
         logoClick.click();
     }
 
     public void constructorButtonClick() {
-        new WebDriverWait(driver, 5)
+        new WebDriverWait(driver, Duration.ofSeconds(5))
                 .until(ExpectedConditions.visibilityOfElementLocated(constructorLocator));
         WebElement entry = driver.findElement(constructorLocator);
         entry.click();
